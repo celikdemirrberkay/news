@@ -17,7 +17,7 @@ class AllNewsUseCase @Inject constructor(
             emit(Resource.Loading())
             val news = repository.getNews(query, countryCode)
 
-            if (news.status.equals("ok")) {
+            if (news.status == "ok") {
                 emit(Resource.Success(news.toNews()))
             } else {
                 emit(Resource.Error("News not found", news.toNews()))
